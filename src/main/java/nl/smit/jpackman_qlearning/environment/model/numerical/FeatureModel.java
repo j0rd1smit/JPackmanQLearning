@@ -100,8 +100,6 @@ public class FeatureModel extends AbstractNumericalModel {
         double nearestPelletDistances = calcNearestPelletDistances();
         newValues.put(ROW_INDEX, 0, nearestPelletDistances);
 
-        System.out.println("nearestPelletDistances : " + nearestPelletDistances + " ");
-        //TODO try x and y distance
 
         this.nearestPelletDistancesVector.assign(newValues);
     }
