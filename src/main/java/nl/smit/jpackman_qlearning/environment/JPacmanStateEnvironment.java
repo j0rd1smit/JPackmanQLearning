@@ -1,8 +1,8 @@
 package nl.smit.jpackman_qlearning.environment;
 
 
-import nl.smit.jpackman_qlearning.agent.environment.FiniteStateEnviroment;
-import nl.smit.jpackman_qlearning.agent.environment.State;
+import nl.smit.jpackman_qlearning.interfaces.FiniteStateEnviroment;
+import nl.smit.jpackman_qlearning.interfaces.State;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironmentFactory;
 import nl.smit.jpackman_qlearning.environment.model.state.MazeStateModel;
 import nl.smit.jpackman_qlearning.environment.model.state.MazeStateModelFactory;

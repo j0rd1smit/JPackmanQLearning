@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
-import nl.smit.jpackman_qlearning.agent.environment.State;
+import nl.smit.jpackman_qlearning.interfaces.State;
 import nl.smit.jpackman_qlearning.environment.percepts.Location;
 import nl.tudelft.jpacman.board.Direction;
 

@@ -1,4 +1,4 @@
-package nl.smit.jpackman_qlearning.agent.environment;
+package nl.smit.jpackman_qlearning.interfaces;
 
 /**
  * A action that can be preformed to the {@link Environment}.

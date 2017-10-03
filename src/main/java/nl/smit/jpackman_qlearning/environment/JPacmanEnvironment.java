@@ -2,8 +2,8 @@ package nl.smit.jpackman_qlearning.environment;
 
 import com.google.common.collect.ImmutableList;
 import lombok.Getter;
-import nl.smit.jpackman_qlearning.agent.environment.Action;
-import nl.smit.jpackman_qlearning.agent.environment.Environment;
+import nl.smit.jpackman_qlearning.interfaces.Action;
+import nl.smit.jpackman_qlearning.interfaces.Environment;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment.GameEnvironmentObserver;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironmentFactory;

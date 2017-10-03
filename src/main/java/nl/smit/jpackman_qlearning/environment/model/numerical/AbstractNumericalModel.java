@@ -2,7 +2,7 @@ package nl.smit.jpackman_qlearning.environment.model.numerical;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import nl.smit.jpackman_qlearning.agent.environment.Model;
+import nl.smit.jpackman_qlearning.interfaces.Model;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment.GameEnvironmentObserver;
 import nl.smit.jpackman_qlearning.environment.percepts.JPacmanPercepts;
 import nl.smit.jpackman_qlearning.environment.percepts.Location;

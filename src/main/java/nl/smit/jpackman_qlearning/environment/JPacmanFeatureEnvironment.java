@@ -1,7 +1,7 @@
 package nl.smit.jpackman_qlearning.environment;
 
 
-import nl.smit.jpackman_qlearning.agent.environment.FeatureBasedEnvironment;
+import nl.smit.jpackman_qlearning.interfaces.FeatureBasedEnvironment;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironmentFactory;
 import nl.smit.jpackman_qlearning.environment.model.numerical.AbstractNumericalModel;
 import nl.smit.jpackman_qlearning.environment.model.numerical.factory.AbstractNumericalModelFactory;

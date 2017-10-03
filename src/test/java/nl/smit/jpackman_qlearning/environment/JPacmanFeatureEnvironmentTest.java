@@ -3,8 +3,7 @@ package nl.smit.jpackman_qlearning.environment;
 
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironmentFactory;
 import nl.smit.jpackman_qlearning.environment.model.numerical.FeatureModel;
-import nl.smit.jpackman_qlearning.environment.model.numerical.NumericalModel;
-import nl.smit.jpackman_qlearning.environment.model.numerical.factory.NumericalModelFactory;
+import nl.smit.jpackman_qlearning.environment.model.numerical.factory.FeatureModelFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
@@ -23,7 +22,7 @@ public class JPacmanFeatureEnvironmentTest extends JPacmanEnvironmentTest {
      * The mocked inputs.
      */
     private FeatureModel model;
-    private NumericalModelFactory numericalModelFactory;
+    private FeatureModelFactory featureModelFactory;
 
     /**
      * The object under testing.
@@ -39,10 +38,10 @@ public class JPacmanFeatureEnvironmentTest extends JPacmanEnvironmentTest {
         initNumericalModelFactoryMock();
 
         jPacmanFeatureEnvironment = new JPacmanFeatureEnvironment(gameEnvironmentFactory,
-                levelFilePath, numericalModelFactory);
+                levelFilePath, featureModelFactory);
 
         //must be done after both the jPacmanFeatureEnvironment
-        // and numericalModelFactory have been created.
+        // and featureModelFactory have been created.
         setUpNumericalModelFactoryFunctionalityMock();
 
         return jPacmanFeatureEnvironment;
@@ -53,12 +52,12 @@ public class JPacmanFeatureEnvironmentTest extends JPacmanEnvironmentTest {
     }
 
     private void initNumericalModelFactoryMock() {
-        numericalModelFactory = mock(NumericalModelFactory.class);
+        featureModelFactory = mock(FeatureModelFactory.class);
 
     }
 
     private void setUpNumericalModelFactoryFunctionalityMock() {
-        when(numericalModelFactory.create(jPacmanFeatureEnvironment)).thenReturn(model);
+        when(featureModelFactory.create(jPacmanFeatureEnvironment)).thenReturn(model);
     }
 
     /**
@@ -82,7 +81,7 @@ public class JPacmanFeatureEnvironmentTest extends JPacmanEnvironmentTest {
 
         observeStateMultipleTimes();
 
-        verify(numericalModelFactory, times(1))
+        verify(featureModelFactory, times(1))
                 .create(jPacmanFeatureEnvironment);
     }
 

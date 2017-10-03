@@ -1,6 +1,6 @@
 package nl.smit.jpackman_qlearning.environment.model.state;
 
-import nl.smit.jpackman_qlearning.agent.environment.State;
+import nl.smit.jpackman_qlearning.interfaces.State;
 import nl.smit.jpackman_qlearning.environment.percepts.JPacmanInitPercepts;
 import nl.smit.jpackman_qlearning.environment.percepts.JPacmanPercepts;
 import nl.smit.jpackman_qlearning.environment.percepts.Location;

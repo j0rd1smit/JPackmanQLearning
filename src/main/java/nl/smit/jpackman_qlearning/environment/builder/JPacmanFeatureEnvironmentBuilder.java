@@ -3,7 +3,7 @@ package  nl.smit.jpackman_qlearning.environment.builder;
 
 import nl.smit.jpackman_qlearning.environment.JPacmanFeatureEnvironment;
 import nl.smit.jpackman_qlearning.environment.model.numerical.factory.AbstractNumericalModelFactory;
-import nl.smit.jpackman_qlearning.environment.model.numerical.factory.NumericalModelFactory;
+import nl.smit.jpackman_qlearning.environment.model.numerical.factory.FeatureModelFactory;
 
 /**
  * A builder for the {@link JPacmanFeatureEnvironmentBuilder}.
@@ -14,7 +14,7 @@ public class JPacmanFeatureEnvironmentBuilder
         extends AbstractJPacmanEnvironmentBuilder<JPacmanFeatureEnvironmentBuilder> {
 
 
-    private AbstractNumericalModelFactory numericalModelFactory = new NumericalModelFactory();
+    private AbstractNumericalModelFactory numericalModelFactory = new FeatureModelFactory();
 
     /**
      * Tells the builder to use the provided model during the construction.

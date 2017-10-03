@@ -2,8 +2,8 @@ package nl.smit.jpackman_qlearning.environment.model.state;
 
 import lombok.Getter;
 
-import nl.smit.jpackman_qlearning.agent.environment.Model;
-import nl.smit.jpackman_qlearning.agent.environment.State;
+import nl.smit.jpackman_qlearning.interfaces.Model;
+import nl.smit.jpackman_qlearning.interfaces.State;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment.GameEnvironmentObserver;
 import nl.smit.jpackman_qlearning.environment.percepts.JPacmanInitPercepts;
 import nl.smit.jpackman_qlearning.environment.percepts.JPacmanPercepts;

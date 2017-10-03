@@ -3,7 +3,7 @@ package nl.smit.jpackman_qlearning.environment.percepts;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import nl.smit.jpackman_qlearning.agent.environment.Percepts;
+import nl.smit.jpackman_qlearning.interfaces.Percepts;
 import nl.tudelft.jpacman.board.Direction;
 import nl.smit.jpackman_qlearning.environment.JPacmanEnvironment;
 

@@ -1,6 +1,6 @@
 package nl.smit.jpackman_qlearning.environment;
 
-import nl.smit.jpackman_qlearning.agent.environment.Action;
+import nl.smit.jpackman_qlearning.interfaces.Action;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironment.GameEnvironmentObserver;
 import nl.smit.jpackman_qlearning.environment.game.GameEnvironmentFactory;

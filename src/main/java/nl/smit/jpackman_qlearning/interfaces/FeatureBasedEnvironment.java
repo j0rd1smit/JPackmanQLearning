@@ -1,4 +1,4 @@
-package nl.smit.jpackman_qlearning.agent.environment;
+package nl.smit.jpackman_qlearning.interfaces;
 
 import org.nd4j.linalg.api.ndarray.INDArray;
 

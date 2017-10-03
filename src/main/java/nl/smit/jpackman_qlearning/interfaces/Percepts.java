@@ -1,4 +1,4 @@
-package nl.smit.jpackman_qlearning.agent.environment;
+package nl.smit.jpackman_qlearning.interfaces;
 
 /**
  * This is a marker interface for the implementation of {@link Percepts} container.
