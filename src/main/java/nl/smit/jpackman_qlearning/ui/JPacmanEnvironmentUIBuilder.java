@@ -1,6 +1,7 @@
 package nl.smit.jpackman_qlearning.ui;
 
 
+import nl.smit.jpackman_qlearning.agent.ReinforcementAgent;
 import nl.smit.jpackman_qlearning.environment.JPacmanEnvironment;
 import nl.tudelft.jpacman.ui.Action;
 
@@ -31,10 +32,10 @@ public class JPacmanEnvironmentUIBuilder {
      * @param environment The {@link JPacmanEnvironment} that will be used by the GUI.
      * @return A new instance of the {@link JPacmanEnvironmentUI}.
      */
-    public JPacmanEnvironmentUI build(final JPacmanEnvironment environment) {
+    public JPacmanEnvironmentUI build(final JPacmanEnvironment environment, ReinforcementAgent agent) {
         assert environment != null;
 
-        return new JPacmanEnvironmentUI(environment, buttons);
+        return new JPacmanEnvironmentUI(environment, buttons, agent);
     }
 
     /**

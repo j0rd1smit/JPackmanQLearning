@@ -2,6 +2,7 @@ package nl.smit.jpackman_qlearning.ui;
 
 
 
+import nl.smit.jpackman_qlearning.agent.ReinforcementAgent;
 import nl.smit.jpackman_qlearning.environment.JPacmanEnvironment;
 import nl.tudelft.jpacman.ui.Action;
 
@@ -39,6 +40,8 @@ public class JPacmanEnvironmentUI extends JFrame {
      */
     private final EnvironmentPanel environmentPanel;
 
+    private final InfoPanel infoPanel;
+
     /**
      * Creates a new {@link JPacmanEnvironmentUI}.
      *
@@ -47,7 +50,8 @@ public class JPacmanEnvironmentUI extends JFrame {
      */
     @SuppressWarnings("initialization")
     // requestFocusInWindow called before initialization ends
-    JPacmanEnvironmentUI(final JPacmanEnvironment environment, Map<String, Action> buttons) {
+    JPacmanEnvironmentUI(final JPacmanEnvironment environment, Map<String, Action> buttons
+            , ReinforcementAgent agent) {
 
         super("JPac-man Environment");
         assert environment != null;
@@ -58,11 +62,13 @@ public class JPacmanEnvironmentUI extends JFrame {
         JPanel buttonPanel = new ButtonPanel(buttons, this);
 
         environmentPanel = new EnvironmentPanel(environment);
+        infoPanel = new InfoPanel(agent);
 
         Container contentPanel = getContentPane();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(buttonPanel, BorderLayout.SOUTH);
         contentPanel.add(environmentPanel, BorderLayout.CENTER);
+        contentPanel.add(infoPanel, BorderLayout.NORTH);
 
         pack();
     }
@@ -82,6 +88,7 @@ public class JPacmanEnvironmentUI extends JFrame {
      */
     private void nextFrame() {
         environmentPanel.repaint();
+        infoPanel.refresh();
     }
 
 }

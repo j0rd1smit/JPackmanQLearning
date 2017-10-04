@@ -7,8 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -80,7 +82,7 @@ class ReinforcementAgentTest {
     @Test
     void startAndStopTest() {
         when(environment.isActive()).thenReturn(true);
-        agent.learn(AMOUNT_OF_ITERATIONS);
+        agent.preformMoves(AMOUNT_OF_ITERATIONS);
 
         Mockito.verify(environment, times(1)).start();
         Mockito.verify(environment, times(1)).stop();
@@ -97,10 +99,23 @@ class ReinforcementAgentTest {
         when(environment.isActive()).thenReturn(true, false, true);
         int requiredIterationToTriggerARestart = 3;
 
-        agent.learn(requiredIterationToTriggerARestart);
+        agent.preformMoves(requiredIterationToTriggerARestart);
         Mockito.verify(environment, times(2)).start();
         Mockito.verify(environment, times(1)).reset();
     }
 
+
+    /**
+     * Verify that when the agent is not learning it will always select the best action.
+     */
+    @Test
+    void preformBestAction() {
+        agent.setLearning(false);
+        int amountOfIterations = 100;
+
+        agent.preformMoves(amountOfIterations);
+
+        verify(logic, times(amountOfIterations)).selectAction(any());
+    }
 
 }

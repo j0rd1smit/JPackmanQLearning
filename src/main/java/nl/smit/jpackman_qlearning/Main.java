@@ -1,5 +1,7 @@
 package nl.smit.jpackman_qlearning;
 
+import nl.smit.jpackman_qlearning.agent.JPacmanFixStateAgentBuilder;
+import nl.smit.jpackman_qlearning.agent.ReinforcementAgent;
 import nl.smit.jpackman_qlearning.environment.JPacmanStateEnvironment;
 import nl.smit.jpackman_qlearning.environment.builder.JPacmanStateEnvironmentBuilder;
 import nl.smit.jpackman_qlearning.launcher.Launcher;
@@ -20,10 +22,12 @@ class Main {
      * @param args takes no args.
      */
     public static void main(String[] args) {
-        JPacmanStateEnvironment environmentBuilder = new JPacmanStateEnvironmentBuilder()
-                .useLevelFile(HARD_MAZE)
+        JPacmanStateEnvironment environment = new JPacmanStateEnvironmentBuilder()
+                .useLevelFile(SMALL_MAZE)
                 .build();
 
-        new Launcher(environmentBuilder).launch();
+        ReinforcementAgent agent = new JPacmanFixStateAgentBuilder(environment).buildQTableAgent();
+
+        new Launcher(environment, agent).launch();
     }
 }

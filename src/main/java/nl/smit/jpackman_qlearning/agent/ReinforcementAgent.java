@@ -2,6 +2,8 @@ package nl.smit.jpackman_qlearning.agent;
 
 
 
+import lombok.Getter;
+import lombok.Setter;
 import nl.smit.jpackman_qlearning.interfaces.Action;
 import nl.smit.jpackman_qlearning.interfaces.Environment;
 
@@ -18,6 +20,7 @@ public class ReinforcementAgent<StateClass> {
 
     private static final double RANDOM_ACTION_CHANGES = 0.1;
 
+
     /**
      * The environment on which the agent is able to act.
      */
@@ -26,6 +29,16 @@ public class ReinforcementAgent<StateClass> {
      * The decision making logic of the agent.
      */
     private ReinforcementLogic<StateClass> reinforcementLogic;
+
+    @Getter
+    @Setter
+    private boolean learning = true;
+    @Getter
+    private double randomActionChange = RANDOM_ACTION_CHANGES;
+    @Getter
+    private int totalMovesMade = 0;
+    @Getter
+    private int movesMadeSinceReset = 0;
 
 
 
@@ -40,6 +53,37 @@ public class ReinforcementAgent<StateClass> {
         this.reinforcementLogic = reinforcementLogic;
     }
 
+
+
+    /**
+     * Performs an N amount of learning iterations,
+     * which will be used to improve the agents decision making.
+     * @param maxIterations The max amount of iterations.
+     */
+    public void preformMoves(int maxIterations) {
+        environment.start();
+
+        for (int i = 0; i < maxIterations; i++) {
+
+            if (learning) {
+                preformQLearningCycle();
+            }
+            else {
+                preformBestAction();
+            }
+            this.movesMadeSinceReset++;
+            this.totalMovesMade++;
+
+            if (!environment.isActive()) {
+                restartEnvironment();
+                this.movesMadeSinceReset = 0;
+            }
+
+        }
+
+        environment.stop();
+    }
+
     private void preformQLearningCycle() {
         QTransition<StateClass> transition =  preformAndSaveTransition();
 
@@ -48,9 +92,8 @@ public class ReinforcementAgent<StateClass> {
 
     private QTransition<StateClass> preformAndSaveTransition() {
 
-
         StateClass startingState  = environment.observeState();
-        Action selectedAction = selectAction(startingState);
+        Action selectedAction = selectEpsGreedyAction(startingState);
 
 
         selectedAction.execute();
@@ -63,32 +106,18 @@ public class ReinforcementAgent<StateClass> {
         return new QTransition<>(startingState, endState, selectedAction, immediateReward);
     }
 
-    private Action selectAction(StateClass state) {
-        if (RANDOM.nextDouble() < RANDOM_ACTION_CHANGES) {
-            //System.out.print("random action: ");
+    private Action selectEpsGreedyAction(StateClass state) {
+        if (RANDOM.nextDouble() < randomActionChange) {
             return reinforcementLogic.selectRandomAction();
         }
 
         return reinforcementLogic.selectAction(state);
     }
 
-    /**
-     * Performs an N amount of learning iterations,
-     * which will be used to improve the agents decision making.
-     * @param maxIterations The max amount of iterations.
-     */
-    public void learn(int maxIterations) {
-        environment.start();
-
-        for (int i = 0; i < maxIterations; i++) {
-            preformQLearningCycle();
-
-            if (!environment.isActive()) {
-                restartEnvironment();
-            }
-        }
-
-        environment.stop();
+    private void preformBestAction() {
+        StateClass state = environment.observeState();
+        Action action = reinforcementLogic.selectAction(state);
+        action.execute();
     }
 
     private void restartEnvironment() {
