@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @author Jordi Smit, 3-10-2017.
  */
 public class AgentRunner {
-    private static final int AMOUNT_OF_SILENT_TRAINING_MOVES = 1000;
+    private static final int AMOUNT_OF_SILENT_TRAINING_MOVES = 10000;
 
     private final ReinforcementAgent agent;
     private boolean inProgress = false;
@@ -89,7 +89,7 @@ public class AgentRunner {
 
     @AllArgsConstructor
     private static class AgentTask implements Runnable {
-        private static final long INTERVAL = 500;
+        private static final long INTERVAL = 250;
 
         private final ReinforcementAgent agent;
         private final ScheduledExecutorService service;

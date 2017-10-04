@@ -23,7 +23,7 @@ class Main {
      */
     public static void main(String[] args) {
         JPacmanStateEnvironment environment = new JPacmanStateEnvironmentBuilder()
-                .useLevelFile(SMALL_MAZE)
+                .useLevelFile(HARD_MAZE)
                 .build();
 
         ReinforcementAgent agent = new JPacmanFixStateAgentBuilder(environment).buildQTableAgent();
