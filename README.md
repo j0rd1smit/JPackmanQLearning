@@ -1,35 +1,18 @@
-Poor Alien
+**JPacmanQLearning**
 ==========
 
-**By DreamTeam**
-
-A game about sliding stuff so it explodes into points!
-And then you win!
+**By Jordi Smit**
+This repository changes the [ jpacman-framework](https://github.com/SERG-Delft/jpacman-framework) of Arie van Deursen into a reinforcement learning enviroment. The main aim of this repository is to give a visual indication of how reinforcement learning works inside a maze.
 
 ## Controls
-The arrows can be used to move the cursor around the board. When the enter key is pressed the column can be moved using the up and down keys and the row can be moved using the left and right keys. The escape key can be used to undo the selection of a square.
+The enviroment has a GUI with the following control buttons:
 
-## SetUp
-```
+ - The 'start' button activates the agent;
+ - The 'stop' button freezes the agent;
+ - The 'train max speed' button trains the agent at a much heigher speed;
+ - The 'toggle training' button toggle the agents desicion making between eps-greedy and greedy;
 
-```
+## Demo:
+The demo shows how the GUI can be used and how the environment can easily be changed using text files:
 
-## How to contribute
-```
-git checkout -b [branchName]
-[change stuff]
-git commit -m [commit message "feature id - description"]
-git push [branchname]
-submit a pull request on github, starting with "resolves #featureId"
-Two people need to accept the pull request, after that it can be merged
-```
-
-## We make use of 
-* junit
-* mockito
-* assertj
-* cucumber
-* checkerframework
-* checkstyle
-* pmd
-* Travis CI
+[![Demo](https://lh3.googleusercontent.com/-QfiodhO3348/WdYIyiiTR_I/AAAAAAAAB7s/39aXy6HwlFAua29wvQu2i2jAwds0hO5MgCLcBGAs/s0/JPacman+environment+preview.png "JPacman environment preview.png")](https://www.youtube.com/watch?v=BUqAd0yrL7Y&feature=youtu.be)
