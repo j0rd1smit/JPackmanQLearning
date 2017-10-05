@@ -2,6 +2,8 @@
 ==========
 
 **By Jordi Smit**
+
+----------
 This repository changes the [ jpacman-framework](https://github.com/SERG-Delft/jpacman-framework) of Arie van Deursen into a reinforcement learning enviroment. The main aim of this repository is to give a visual indication of how reinforcement learning works inside a maze.
 
 ## Controls
